@@ -1,3 +1,5 @@
+
+
 .header {
     background-color: #020260;
     color: white;
@@ -11,7 +13,7 @@
     align-items: center;
     justify-content: space-between;
     align-items: left;
-    font-weight: ;
+    font-weight:5px ;
 }
 
 .language-button {
@@ -65,9 +67,11 @@
     overflow-wrap: break-word;
     font-family: 'Signika Negative';
     font-weight: 700;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 1.25;
     align-items: center;
+ 
+   justify-content: center;
     color: #000000;
     
 }
@@ -94,29 +98,41 @@ a{
 
 }
 
+.search{
+    top: 80px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .rect1 {
     position: absolute;
     width: 65%;
     height: 140px;
-    display: flex;
-    flex-direction: column;
+   
+    margin-top: 30px;
+   
 }
 .rect3{
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 45px;
+    
+    padding-bottom: 20px;
     background: linear-gradient(to left, #7a3f7c, #e8b8eb);
 
 
 }
-.rect4{
+
+  .rect4{
     display: flex;
-   justify-content: center;
-   padding-top: 3%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
 }
+
 .rout{
-    padding-left: 20px;
-    font-family: ;
+    padding-left: 10px;
+    font-family:sans-serif ;
+   padding-top: 0.5px;
 }
 
 .bus-button{
@@ -129,8 +145,6 @@ a{
     transition: background-color 0.3s ease;
     border-radius: 100px;
     border: 2px solid #000000;
-    display: flex;
-    padding: 6px 15px 6px 15.5px;
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
@@ -221,6 +235,7 @@ a{
     flex: 1;
     display: flex;
     flex-direction: column;
+   
 
 }
 
@@ -230,8 +245,8 @@ a{
 
 .footer-sltb {
     padding-left: 130px;
-    position: absolute;
-    top: 1225px;
+ margin-bottom: -10px;
+  
 }
 
 .social-media img {
@@ -262,7 +277,8 @@ a{
 
 .new {
     text-align: center;
-    padding-top: 60px;
+    margin-bottom: -10px;
+   
 }
 .new1{
     
@@ -315,6 +331,7 @@ a{
     display: flex;
     flex-direction: row;
     justify-content: center;
+   
 }
 .feedbacke_image{
     width: 200px;
