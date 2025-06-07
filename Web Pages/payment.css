@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: space-between;
     align-items: left;
-    font-weight: ;
+    
 }
 
 .language-button {
@@ -112,7 +112,7 @@
 }
 .rout{
     padding-left: 20px;
-    font-family: ;
+  
 }
 
 .bus-button{
@@ -225,7 +225,7 @@
 .footer-sltb {
     padding-left: 130px;
     position: absolute;
-    top: 860px;
+    bottom: -200px;
 }
 
 .social-media img {
