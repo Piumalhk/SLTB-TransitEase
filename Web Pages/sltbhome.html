@@ -24,7 +24,7 @@
             </div>
               </form>
         <img src="nee.png" alt="Logo" width="100" style="position: absolute;  right: 80%; transform: translateX(-50%);">
-        <button class="admin-button" style="position: absolute;  left: 87.5%; transform: translateX(-50%);"><a href="adminlogin.html">ADMIN LOGIN</a></button>
+        <button class="admin-button" style="position: absolute;  left: 87.5%; transform: translateX(-50%);">ADMIN LOGIN</button>
         <img src="kisspng-computer-icons-login-management-user-5ae155f3386149.6695613615247170432309-removebg-preview.png" alt="Ad Logo" width="100">
     </div>
     </div>
@@ -48,22 +48,21 @@
             <div class="rect2" style="background-color:#11276B;height: 30%;">
                 <div class="rout"><p style="color: rgb(255, 255, 255);font-family: calibri";><B>HIGWAY ROUT SELECTION</B></p></div>
                 
-            </div>
-            <div class="rect3" style=" height: 80%;border-radius: 0px 0px 20px 20px;">
-                <form method="get" action=>
+            </div>            <div class="rect3" style=" height: 80%;border-radius: 0px 0px 20px 20px;">
+                <form id="busSearchForm" method="get" action="routslect.html" onsubmit="return validateForm()">
                     <div class="search">
                 <div class="rect4" style="width: 25%;">
-                    <input type="text" placeholder="FROM"  style="height: 40px; width: 50%;">
+                    <input type="text" id="fromField" name="from" placeholder="FROM" required style="height: 40px; width: 50%;">
                 </div>                        
                 <div class="rect4" style="width: 25%;">
-                    <input type="text" placeholder="TO" style="height: 40px; width: 50%;">
+                    <input type="text" id="toField" name="to" placeholder="TO" required style="height: 40px; width: 50%;">
                 </div>
                 <div class="rect4" style= "width: 25%;">
-                    <input type="date" placeholder="DATE" style="height: 40px; width: 50%;">
+                    <input type="date" id="dateField" name="date" required style="height: 40px; width: 50%;">
                 </div>
             
                 <div class="rect4" style="width: 25%;">
-                    <button type="submit" class="bus-button"  style="position: absolute;  left: 87.5%; transform: translateX(-50%);height: 40px ; width:150px ;"><a href="routslect.html">SEARCH BUSES</a></button>
+                    <button type="submit" class="bus-button" style="position: absolute;  left: 87.5%; transform: translateX(-50%);height: 40px ; width:150px ;">SEARCH BUSES</button>
                 </div>
             </div>
                 </form>
@@ -147,8 +146,47 @@
             <br>+94(0)11 7706000|+94(0)11 25811120-4
             <br>=94(0)11 2589683|info@sltb.lk</p>
         </div>
-        </div>
-    </footer>
+        </div>    </footer>
     
+    <script>
+        function validateForm() {
+            const fromField = document.getElementById('fromField').value.trim();
+            const toField = document.getElementById('toField').value.trim();
+            const dateField = document.getElementById('dateField').value;
+            
+            // Check if all fields are filled
+            if (!fromField) {
+                alert('Please enter a departure location (FROM)');
+                document.getElementById('fromField').focus();
+                return false;
+            }
+            
+            if (!toField) {
+                alert('Please enter a destination location (TO)');
+                document.getElementById('toField').focus();
+                return false;
+            }
+            
+            if (!dateField) {
+                alert('Please select a travel date');
+                document.getElementById('dateField').focus();
+                return false;
+            }
+            
+            // Check if selected date is not in the past
+            const selectedDate = new Date(dateField);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0); // Set time to midnight for comparison
+            
+            if (selectedDate < today) {
+                alert('Please select a future date');
+                document.getElementById('dateField').focus();
+                return false;
+            }
+            
+            // If all validations pass, allow form submission
+            return true;
+        }
+    </script>
 </body>
 </html>
