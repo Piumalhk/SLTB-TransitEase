@@ -1,0 +1,286 @@
+﻿<?php
+// routslect.php - Converted from routslect.html
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLTB-TransitEase</title>
+    <link rel="stylesheet" href="routselect.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-main" >
+            <form >
+                <div class="language">
+                <select name="language" id="language">
+                  <option value="volvo">Sinhala</option>
+                  <option value="saab">English</option>
+                </select>
+            </div>
+              </form>
+        <img src="nee.png" alt="Logo" width="100" style="position: absolute;  right: 80%; transform: translateX(-50%);">
+        <button class="admin-button" style="position: absolute;  left: 87.5%; transform: translateX(-50%);">ADMIN LOGIN</button>
+        <img src="kisspng-computer-icons-login-management-user-5ae155f3386149.6695613615247170432309-removebg-preview.png" alt="Ad Logo" width="100">
+    </div>
+    </div>
+     <nav class="navbar" >
+            <div class="logo">
+                <img src="Bus-logo-temokate-on-transparent-background-PNG-removebg-preview.png" alt="Bus Logo">
+                <div class="logo-text">SLTB-Transit<span>Ease</span></div>
+            </div>
+            <ul class="nav-links" style="font-size:20px;">
+                <li><a href="#">Home</a></li>
+                <li><a href="aboutus.php">About Us</a></li>
+                <li><a href="#">Schedule</a></li>
+                <li><a href="sltbhotline.php">Hotline</a></li>
+            </ul>
+        </nav> 
+      <div class="container">
+        <!-- Search Summary Section -->
+        <div class="search-summary">
+            <h2>Available Bus Routes</h2>
+            <div class="search-details">
+                <span><strong>From:</strong> <span id="fromLocation">-</span></span>
+                <span><strong>To:</strong> <span id="toLocation">-</span></span>
+                <span><strong>Date:</strong> <span id="travelDate">-</span></span>
+            </div>
+        </div>
+
+        <!-- Bus Routes Container -->
+        <div id="busRoutesContainer">
+            <!-- Bus routes will be dynamically generated here -->
+        </div>
+
+        <!-- No Routes Found Message -->
+        <div id="noRoutesMessage" class="no-routes" style="display: none;">
+            <h3>No routes found for your search criteria</h3>
+            <p>Please try different locations or dates</p>
+            <button onclick="window.history.back()" class="back-button">Go Back to Search</button>
+        </div>
+    </div>
+
+   <footer class="footer" >
+        <div class="footer-column">
+            <div class="social-media">
+            <ul>
+                <li><a href="#"><img src="Images/socialmedea.png" ></a width:100;></li>
+              
+            </ul>
+        </div>
+        </div>
+        <div class="footer-column">
+            <div class="list">
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">T&C</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="footer-column">
+            <div class="logo">
+                <img src="Bus-logo-temokate-on-transparent-background-PNG-removebg-preview.png" alt="Bus Logo">
+                <div class="logo-text">SLTB-Transit<span>Ease</span></div>
+            </div>
+            <div class="apex"><p>Team Apex<br>teamapex@gmail.com</p></div>
+            
+          
+          </div>
+        <div class="footer-column">
+            <div class="footer-sltb">
+            <img src="nee.png" alt="SLTB Logo" width="100" >
+        </div>
+        <div class="new">
+            <p><b>Sri Lanka Transport Board</b>
+            <br>No. 200, Kirula Road, Colombo 5
+            <br>+94(0)11 7706000|+94(0)11 25811120-4
+            <br>=94(0)11 2589683|info@sltb.lk</p>
+        </div>
+        </div>    </footer>
+
+    <script>
+        // Sample bus data - in a real application, this would come from a database
+        const busRoutes = [
+            {
+                id: 'R001',
+                routeNumber: '#Route 35',
+                busId: 'SLT-1234',
+                busType: 'Super Highway',
+                model: 'Ashok Leyland',
+                departureTime: '06:30 AM',
+                arrivalTime: '10:45 AM',
+                duration: '4h 15m',
+                price: 450,
+                availableSeats: 28,
+                totalSeats: 52
+            },
+            {
+                id: 'R002',
+                routeNumber: '#Route 36',
+                busId: 'SLT-5678',
+                busType: 'Semi Highway',
+                model: 'TATA Motors',
+                departureTime: '08:15 AM',
+                arrivalTime: '12:30 PM',
+                duration: '4h 15m',
+                price: 380,
+                availableSeats: 15,
+                totalSeats: 52
+            },
+            {
+                id: 'R003',
+                routeNumber: '#Route 47',
+                busId: 'SLT-9012',
+                busType: 'Express',
+                model: 'Volvo',
+                departureTime: '11:00 AM',
+                arrivalTime: '3:15 PM',
+                duration: '4h 15m',
+                price: 520,
+                availableSeats: 35,
+                totalSeats: 52
+            },
+            {
+                id: 'R004',
+                routeNumber: '#Route 52',
+                busId: 'SLT-3456',
+                busType: 'Normal',
+                model: 'Leyland',
+                departureTime: '02:45 PM',
+                arrivalTime: '7:00 PM',
+                duration: '4h 15m',
+                price: 320,
+                availableSeats: 22,
+                totalSeats: 52
+            },
+            {
+                id: 'R005',
+                routeNumber: '#Route 63',
+                busId: 'SLT-7890',
+                busType: 'Super Highway',
+                model: 'Mercedes',
+                departureTime: '05:30 PM',
+                arrivalTime: '9:45 PM',
+                duration: '4h 15m',
+                price: 480,
+                availableSeats: 41,
+                totalSeats: 52
+            }
+        ];
+
+        function getURLParameters() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return {
+                from: urlParams.get('from') || 'Not specified',
+                to: urlParams.get('to') || 'Not specified',
+                date: urlParams.get('date') || 'Not specified'
+            };
+        }
+
+        function formatDate(dateString) {
+            if (dateString === 'Not specified') return dateString;
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+        }
+
+        function createBusRouteCard(bus, searchParams) {
+            return `
+                <div class="main-rect">
+                    <div class="rect1">
+                        <p style="padding-left: 92%;"><b>${bus.routeNumber}</b></p>
+                    </div>
+                    <div class="rect2">
+                        <div class="bus-info-container">
+                            <div class="bus-image">
+                                <img src="bus.JPG" width="220px" height="170px" style="padding-left: 10px;">
+                            </div>
+                            <div class="bus-details">
+                                <div class="time-info">
+                                    <div class="departure-info">
+                                        <strong>Departure:</strong> ${searchParams.from}<br>
+                                        <strong>Date:</strong> ${formatDate(searchParams.date)}<br>
+                                        <strong>Time:</strong> ${bus.departureTime}
+                                    </div>
+                                    <div class="arrival-info">
+                                        <strong>Arrival:</strong> ${searchParams.to}<br>
+                                        <strong>Date:</strong> ${formatDate(searchParams.date)}<br>
+                                        <strong>Time:</strong> ${bus.arrivalTime}
+                                    </div>
+                                </div>
+                                <div class="vl"></div>
+                                <div class="bus-specs">
+                                    <strong>Bus Type:</strong> ${bus.busType}<br><br>
+                                    <strong>Model:</strong> ${bus.model}<br><br>
+                                    <strong>Bus ID:</strong> ${bus.busId}<br><br>
+                                    <strong>Duration:</strong> ${bus.duration}<br><br>
+                                    <strong>Available Seats:</strong> ${bus.availableSeats}/${bus.totalSeats}
+                                </div>
+                            </div>
+                            <div class="booking-section">
+                                <div class="price-container">
+                                    <div class="price-box">
+                                        <strong>Rs. ${bus.price}</strong>
+                                    </div>                                    <div class="book-button">
+                                        <a href="routselect2.php?routeId=${bus.id}&from=${encodeURIComponent(searchParams.from)}&to=${encodeURIComponent(searchParams.to)}&date=${searchParams.date}&price=${bus.price}">
+                                            <button class="book-seat-btn">Book Seat</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rect3"></div>
+                </div>
+            `;
+        }
+
+        function displaySearchResults() {
+            const searchParams = getURLParameters();
+            
+            // Update search summary
+            document.getElementById('fromLocation').textContent = searchParams.from;
+            document.getElementById('toLocation').textContent = searchParams.to;
+            document.getElementById('travelDate').textContent = formatDate(searchParams.date);
+
+            // Check if search parameters are valid
+            if (searchParams.from === 'Not specified' || searchParams.to === 'Not specified' || searchParams.date === 'Not specified') {
+                document.getElementById('noRoutesMessage').style.display = 'block';
+                return;
+            }
+
+            // Generate bus route cards
+            const container = document.getElementById('busRoutesContainer');
+            const routeCards = busRoutes.map(bus => createBusRouteCard(bus, searchParams)).join('');
+            container.innerHTML = routeCards;
+
+            // If no routes found (this could be based on actual search logic)
+            if (busRoutes.length === 0) {
+                document.getElementById('noRoutesMessage').style.display = 'block';
+            }
+        }
+
+        // Initialize the page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            displaySearchResults();
+        });
+    </script>
+
+</body>
+
+</html>
